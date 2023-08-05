@@ -1,0 +1,22 @@
+{
+  "type": "AssumedRole", 
+  "principalid": "AROA4EBG66KAJ2BCOR7MC:newrelic-infrastructure", 
+  "arn": "arn:aws:sts::123456789012:assumed-role/NewRelicInfrastructure-Integrations/newrelic-infrastructure", 
+  "accountid": "123456789012", 
+  "invokedby": "null", 
+  "accesskeyid": "ASIA4EBG66KAH3KDSZUR", 
+  "username": "null", 
+  "sessioncontext": {
+    "attributes": {
+      "mfaauthenticated": false, 
+      "creationdate": "2023-06-29T03:01:25Z"
+    }, 
+    "sessionissuer": {
+      "type": "Role", 
+      "principalid": "AROA4EBG66KAJ2BCOR7MC", 
+      "arn": "arn:aws:iam::123456789012:role/NewRelicInfrastructure-Integrations", 
+      "accountid": "123456789012", 
+      "username": "NewRelicInfrastructure-Integrations"
+    }
+  }
+}
