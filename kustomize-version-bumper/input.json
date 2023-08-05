@@ -1,0 +1,11 @@
+{
+  "local_git_dir": "/Users/dan/github/MyGithubOrg",
+  "applications_to_bump_framework_base": ["Foo", "Bar"],
+  "framework_base": "Tomcat",
+  "framework_k8s_path": "/deployment/k8s-manifests",
+  "framework_base_tag_prefix": "tomcat-",
+
+  "environment": "sandbox",
+  "applications_to_bump_application_base": ["Foo", "Bar"],
+  "deployment_repo_name": "MyDeployments"
+}

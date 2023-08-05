@@ -21,7 +21,7 @@ EOL
 
   OUTPUT_DIR="deploy/bases/v0.0.1/originals/original-${ENV}"
 
-  # Ex: helm template "charts/ciitizen-sharing-service-v2" --namespace=default --set image.tag=v0.0.1-g1759b01-kustomization -f vars/dev/values.yaml --output-dir $OUTPUT_DIR
+  # Ex: helm template "charts/client-sharing-service-v2" --namespace=default --set image.tag=v0.0.1-g1759b01-kustomization -f vars/dev/values.yaml --output-dir $OUTPUT_DIR
   helm template "charts/${SERVICE}" --namespace=${ENV} --set image.tag=${FULL_VERSION} -f vars/${ENV}/values.yaml --output-dir $OUTPUT_DIR
 
   # Prep configmapGenerator if configmap file exists

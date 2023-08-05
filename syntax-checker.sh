@@ -1,3 +1,4 @@
+# Checks syntax of ruby (.rb) and JSON (.json) files for 
 #!/bin/bash
 echo "Checking ruby files in this directory:"
 echo "--------------------------------------"

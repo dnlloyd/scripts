@@ -1,3 +1,4 @@
+# Show certificates from a Java CA on Linux
 # Usage: ./ca-certs <Search Sting>
 
 CACERTS_PATH=`find "${JAVA_HOME}" -name cacerts`
