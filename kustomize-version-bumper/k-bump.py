@@ -10,7 +10,7 @@ import json
 import semantic_version
 import sys
 
-inputs_file = open(sys.argv[0])
+inputs_file = open(sys.argv[1])
 inputs = json.load(inputs_file)
 
 ## Inputs: global ####
@@ -201,9 +201,9 @@ def update_overlays_versions(application, new_tag, tag_prefix):
 ####################################################
 ## Main ############################################
 ####################################################
-mode = input('What would you like to do?\nBump framework bases: "framework"\nBump application bases: "app"')
+mode = input('What would you like to do?\n  1. Bump framework bases\n  2. Bump application bases\nSelection: ')
 
-if mode == 'framework':
+if mode == '1':
   base_pr = input('PR link for ASPNetCore base: ')
 
   # Get the latest Kustomize base tag
@@ -228,7 +228,7 @@ if mode == 'framework':
   for pr in pull_requests:
     print(pr)
 
-if mode == 'app':
+if mode == '2':
   # Rebase main/master branch for each application 
   # The new tag will point to the commit of this branch
   prep_git_branches(applications_to_bump_application_base)
@@ -244,6 +244,7 @@ if mode == 'app':
   # check out and update default branch
   print(f'Checking out {default_branch} branch for deployments repo')
   git_app_repo.checkout(default_branch)
+  print(f'Pulling {default_branch} branch for deployments repo')
   os.system(f'git pull --quiet origin {default_branch}')
 
   # New tags for application bases and update apps to these versions in deployments repo
