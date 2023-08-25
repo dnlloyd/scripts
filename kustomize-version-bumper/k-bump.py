@@ -9,6 +9,7 @@ from getpass import getpass
 import json
 import semantic_version
 import sys
+import time
 
 inputs_file = open(sys.argv[1])
 inputs = json.load(inputs_file)
@@ -140,6 +141,7 @@ def push_git_changes(apps_to_update, latest_tag, pr_number):
     
     print(f'Making PR for {application}')
     pr_response = requests.post(f'https://api.github.com/repos/BuildingLink/{application}/pulls', headers=headers, data=json.dumps(data))
+    time.sleep(2) # was receiving "exceeded a secondary rate limit" errors
     
     if pr_response.status_code != 201:
       print('Error creating PR')
