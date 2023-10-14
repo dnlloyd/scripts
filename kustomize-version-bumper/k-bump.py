@@ -244,9 +244,9 @@ if mode == '2':
   default_branch = default_branch_long.split("/")[3]
 
   # check out and update default branch
-  print(f'Checking out {default_branch} branch for deployments repo')
+  print(f'Checking out {default_branch} branch for {deployment_repo} repo')
   git_app_repo.checkout(default_branch)
-  print(f'Pulling {default_branch} branch for deployments repo')
+  print(f'Pulling {default_branch} branch for {deployment_repo} repo')
   os.system(f'git pull --quiet origin {default_branch}')
 
   # New tags for application bases and update apps to these versions in deployments repo
