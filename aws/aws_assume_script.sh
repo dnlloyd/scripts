@@ -1,6 +1,15 @@
 #!/bin/bash
 
-export ACCOUNT_ID=`aws sts get-caller-identity --query "Account" --output text`
+# Usage
+# aws_assume_script.sh Role-Name [Account-ID]
+
+if [[ -z $2 ]]
+then
+  export ACCOUNT_ID=`aws sts get-caller-identity --query "Account" --output text`
+else
+  export ACCOUNT_ID=$2
+fi
+
 export ROLE=$1
 
 echo "Assuming ${1} role for account ${ACCOUNT_ID}..."
