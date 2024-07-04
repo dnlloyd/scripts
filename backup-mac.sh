@@ -9,7 +9,7 @@ REMOTE_BACKUP_DIR="/Users/dan/Foghorn-Backup/"
 LOCAL_BACKUP_DIR="/Users/dan/Documents/backup"
 
 GITHUB_SOURCE_DIR="/Users/dan/github"
-GITHUB_TARGET_DIR="/Users/dan/github-public/"
+GITHUB_TARGET_DIR="/Users/dan/github/"
 
 ICLOUD_BACKUP_DIR="/Users/dan/Documents/backup"
 
@@ -45,10 +45,12 @@ ls -al $HOME > $ICLOUD_BACKUP_DIR/home-dir-contents.txt
 # CryptoMator volume must be mounted
 # CryptoMator volume is stored in ~/Documents/encrypted
 if [[ $COPY_TO_CRYPTOMATOR_VOLUME == "true" ]]; then  
-  echo "############## Copying encrypted files##############"
+  echo "############## Copying encrypted files ##############"
   rsync -avtro --progress $HOME/.ssh $CRYPTOMATOR_DIR/ssh
   rsync -avtro --progress $HOME/.aws $CRYPTOMATOR_DIR/aws_creds
   rsync -avtro --progress $HOME/.gnupg $CRYPTOMATOR_DIR/gnupg
+  # rsync -avtro --progress /Users/dan/Downloads/github-recovery-codes-dnlloyd-mcc.txt $CRYPTOMATOR_DIR/github-recovery-codes/
+
 else
   echo "############## Skipping encrypted files ##############"
 fi

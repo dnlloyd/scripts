@@ -1,5 +1,6 @@
 unsynced_repos=()
 invalid_repos=()
+feature_branch_repos=()
 
 cd /Users/dan/github
 
@@ -42,6 +43,14 @@ do
               # repo is up to date
               echo "No changes"
             fi
+
+            # check if not on main branch
+            current_branch=`git branch --show-current`
+            if [[ $current_branch != "main" ]] && [[ $current_branch != "master" ]]
+            then
+              echo "Feature branch: ${current_branch}"
+              feature_branch_repos+=("${org}/${repo}(${current_branch})")
+            fi
         fi
 
         echo "----------------------------------------------\n"
@@ -72,4 +81,13 @@ echo "====================================================="
 for repo in ${invalid_repos[@]}
 do
   echo $repo
+done
+echo ""
+echo "====================================================="
+echo "Repos not on main branch"
+echo "====================================================="
+for repo in ${feature_branch_repos[@]}
+do
+  echo $repo
+  # echo ""
 done
