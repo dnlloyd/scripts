@@ -5,13 +5,10 @@ COPY_TO_CRYPTOMATOR_VOLUME="false"
 TARGET_IP="192.168.0.228"
 TARGET_USER="dan"
 
-REMOTE_BACKUP_DIR="/Users/dan/Foghorn-Backup/"
-LOCAL_BACKUP_DIR="/Users/dan/Documents/backup"
-
 GITHUB_SOURCE_DIR="/Users/dan/github"
 GITHUB_TARGET_DIR="/Users/dan/github/"
 
-ICLOUD_BACKUP_DIR="/Users/dan/Documents/backup"
+ICLOUD_BACKUP_DIR="/Users/dan/Documents/backup/Foghorn/"
 
 CRYPTOMATOR_DIR="/Volumes/encrypted"
 LOCAL_ENCRYPTED_DIR="/Users/dan/Documents/encrypted"
@@ -55,29 +52,30 @@ else
   echo "############## Skipping encrypted files ##############"
 fi
 
-############## Backup CryptoMator to personal mac ##############
-echo "############## Backing up CryptoMator to personal Macbook Pro ##############"
-rsync -avtro --progress $LOCAL_ENCRYPTED_DIR $TARGET_USER@$TARGET_IP:$REMOTE_BACKUP_DIR
-
 
 ############## Home files backup ##############
 echo "############## Backing up Home files to iCloud ##############"
 for file in "${HOME_FILES[@]}"
 do
-  rsync -avtro --progress ~/$file $LOCAL_BACKUP_DIR/home-files-foghorn/
+  rsync -avtro --progress ~/$file $ICLOUD_BACKUP_DIR/home-files/
 done
 
 ############## Homebrew apps ##############
 echo "############## Capturing Homebrew apps ##############"
-brew list > $LOCAL_BACKUP_DIR/homebrew-apps.txt
+brew list > $ICLOUD_BACKUP_DIR/homebrew-apps.txt
 
 ############## Mac installed apps ##############
 echo "############## Mac installed apps  ##############"
-system_profiler SPApplicationsDataType > $LOCAL_BACKUP_DIR/mac-installed-apps.txt
+system_profiler SPApplicationsDataType > $ICLOUD_BACKUP_DIR/mac-installed-apps.txt
 
 ############## Pyenv versions ##############
 echo "############## Pyenv versions ##############"
-pyenv versions > $LOCAL_BACKUP_DIR/pyenv-versions.txt
+pyenv versions > $ICLOUD_BACKUP_DIR/pyenv-versions.txt
+
+
+############## Pyenv versions ##############
+echo "############## Crontab ##############"
+crontab -l > $ICLOUD_BACKUP_DIR/crontab.txtls
 
 
 ############## iMovie projects ##############
