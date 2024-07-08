@@ -29,6 +29,7 @@ fi
 
 
 ############## Github Backup ##############
+# TODO: Skip .terraform files
 echo "############## Backing up local Github to personal Macbook Pro ##############"
 rsync -avtro --progress $GITHUB_SOURCE_DIR/* $TARGET_USER@$TARGET_IP:$GITHUB_TARGET_DIR
 
