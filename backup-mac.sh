@@ -64,9 +64,11 @@ done
 echo "############## Capturing Homebrew apps ##############"
 brew list > $ICLOUD_BACKUP_DIR/homebrew-apps.txt
 
+
 ############## Mac installed apps ##############
 echo "############## Mac installed apps  ##############"
 system_profiler SPApplicationsDataType > $ICLOUD_BACKUP_DIR/mac-installed-apps.txt
+
 
 ############## Pyenv versions ##############
 echo "############## Pyenv versions ##############"
