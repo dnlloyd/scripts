@@ -1,10 +1,15 @@
+# TODO: 
+#   - Create org for class and one repo per student 
+#   - create an initial commit and add the "grading" branch to this initial commit
+#   - always make the PR like this base:grading <-- compare:main
+
 # Usage
 # ./mcc_git_cloner.sh CSIS-119 s12345678
 
 export CANVAS_COURSE_ID=16666
 # export CANVAS_TOKEN=
 
-PROJECT_NAME="Python-Web-API"
+PROJECT_NAME="Python-web-API"
 GIT_GRADING_BRANCH="${PROJECT_NAME}-grading"
 GIT_DIR="/Users/dan/github/MCC-Students/CSIS-119-fall-2024"
 GIT_REPO=$1
