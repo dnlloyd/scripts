@@ -1,4 +1,4 @@
-src_net_num=`ifconfig -X en6 | grep "inet " | awk '{print $2}' | awk -F'.' '{print $3}'`
+src_net_num=`ifconfig | grep "inet 192.168." | awk '{print $2}' | awk -F'.' '{print $3}'`
 dest_ip=$1
 dest_net_num=`echo $dest_ip | awk -F'.' '{print $3}'`
 
