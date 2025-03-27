@@ -12,6 +12,12 @@ case $src_net_num in
   "20")
     src_net="Gaming"
     ;;
+  "0")
+    src_net="Management"
+    ;;
+  "100")
+    src_net="Public"
+    ;;
   *)
     echo "Unable to determine source network"
     ;;
@@ -26,6 +32,12 @@ case $dest_net_num in
     ;;
   "20")
     dest_net="Gaming"
+    ;;
+  "0")
+    dest_net="Management"
+    ;;
+  "100")
+    dest_net="Public"
     ;;
   *)
     echo "Unable to determine destination network"
