@@ -1,3 +1,10 @@
+'''
+Convert SRT formatted files to VTT
+
+Usage: python srt_conversion.py SRT input
+Example: python srt_conversion.py oshiv-demo-pt2-instance-and-oke.srt
+'''
+
 import sys
 import os
 import re
