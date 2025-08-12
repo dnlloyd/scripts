@@ -1,7 +1,8 @@
 #!/bin/bash
 
 NOTES_PATH="${HOME}/Notes"
-DOCS_PATH="${HOME}/Documents/Cerner/github-cerner/ETS-Gamma/ets_gamma_documentation/docs"
+DOCS_PATH="${HOME}/github-cerner/ETS-Gamma/ets_gamma_documentation/docs"
+ORACLE_DOCS_PATH="${HOME}/Documents/Oracle/Products-and-Platforms"
 
 # POSITIONAL=()
 # while [[ $# -gt 0 ]]
@@ -38,16 +39,20 @@ DOCS_PATH="${HOME}/Documents/Cerner/github-cerner/ETS-Gamma/ets_gamma_documentat
 SEARCH_STR=$1
 # RECURSIVE=$2
 
-echo '------- File names -------'
+echo 'Matches by file name'
+echo '--------------------------------------------'
 find "${NOTES_PATH}/" -iname "*${SEARCH_STR}*"
 find "${DOCS_PATH}/" -iname "*${SEARCH_STR}*"
+find "${ORACLE_DOCS_PATH}/" -iname "*${SEARCH_STR}*"
 echo ''
 
-echo '------- File contents -------'
+echo 'Matches by file content'
+echo '--------------------------------------------'
 # if [[ ! -z $RECURSIVE ]] && [[ $RECURSIVE = "r" ]]
   # then
     grep -Risl $SEARCH_STR $NOTES_PATH
     grep -Risl $SEARCH_STR $DOCS_PATH
+    grep -Risl $SEARCH_STR $ORACLE_DOCS_PATH
 #   else
 #     grep -isl $SEARCH_STR $NOTES_PATH/*
 #     grep -isl $SEARCH_STR $DOCS_PATH/*
