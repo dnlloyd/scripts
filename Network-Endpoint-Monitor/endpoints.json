@@ -1,0 +1,10 @@
+[
+    {
+        "endpoint": "192.168.0.1",
+        "check_type" : "ping"
+    },
+    {
+        "endpoint": "https://google.com",
+        "check_type" : "curl"
+    }
+]
