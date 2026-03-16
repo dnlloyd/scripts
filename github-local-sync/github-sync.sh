@@ -1,4 +1,4 @@
-GITHUB_SRC_PATH="/Users/dan/github"
+GITHUB_SRC_PATH="/Users/dan/github-cerner"
 SYNC_DEST="/Users/dan/Documents/github-sync"
 
 date 2>&1 | tee -a "${SYNC_DEST}/sync.log"

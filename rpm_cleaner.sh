@@ -31,3 +31,5 @@ else
 fi
 
 echo "Cleanup complete."
+
+# If the RPM DB needs to be rebuilt, run: rpm_cleaner.sh
