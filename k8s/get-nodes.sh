@@ -1,5 +1,7 @@
+#!/usr/bin/env bash
+
 while true
-do 
+do
   date
   kubectl get nodes -o wide
   echo "---"
