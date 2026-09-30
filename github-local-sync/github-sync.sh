@@ -1,19 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-GITHUB_SRC_PATH="/Users/dan/github-cerner"
+GITHUB_SRC_PATH="/Users/dan/github"
 SYNC_DEST="/Users/dan/Documents/github-sync"
 
-exec > >(tee -a "${SYNC_DEST}/sync.log")
-exec 2>&1
+date 2>&1 | tee -a "${SYNC_DEST}/sync.log"
 
-date
-
-for repo_path in "${GITHUB_SRC_PATH}"/*
-do
-  if [[ -d "${repo_path}" ]]
-  then
-    repo_name="$(basename "${repo_path}")"
-    echo "Syncing ${repo_name} to ${SYNC_DEST}"
-    rsync -vro "${repo_path}" "${SYNC_DEST}" --exclude=".git" --exclude=".terraform*" --exclude="terraform.tfstate*"
-  fi
+for dir in "$GITHUB_SRC_PATH"/*; do
+  [ -d "$dir" ] || continue
+  file=${dir##*/}
+  echo "Syncing ${file} to ${SYNC_DEST}" 2>&1 | tee -a "${SYNC_DEST}/sync.log"
+  rsync -vrto "$dir" "$SYNC_DEST" \
+    --exclude='.git' \
+    --exclude='node_modules/' \
+    --exclude='.terraform*' \
+    --exclude='terraform.tfstate*'
 done
